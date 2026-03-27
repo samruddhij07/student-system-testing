@@ -1,0 +1,40 @@
+pipeline{
+	agent any
+	tools{
+		ant "Ant_1.10.15"
+	}
+	
+	stages{
+		
+		stage("Source"){
+			steps{
+				git branch:"main", url:"https://github.com/samruddhij07/DevOps-practice.git"
+			}
+		}
+	
+		stage("Build and compile"){
+			steps{
+				bat "ant -f student-system-testing.xml compile"
+			}
+		}
+
+		stage("Unit testing"){
+			steps{
+				bat "ant -f student-system-testing.xml test"
+			}
+		}
+		
+	}
+
+	post{
+		always{
+			junit "test-reports/*.xml"
+		}
+		success{
+			echo "Student grade system tested successfully!"
+		}
+		failure{
+			echo "Testing failed! Please check test results!"
+		}
+	}
+}

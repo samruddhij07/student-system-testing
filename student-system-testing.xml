@@ -1,0 +1,27 @@
+<project name=student-grades>
+	<property file="build.properties" />
+	
+	<target name="compile">
+		<mkdir = "${builddir}/${classdir}" />
+		<javac srcdir="${srcdir}" destdir="${builddir}/${classdir}" />
+	</target>
+
+	<target name="test" depends="compile">
+		<mkdir dir="test-reports" />
+		<junit printsummary="yes" fork="true" haltonfailure="no">
+			<classpath>
+				<pathelement path="${builddir}/${classdir}"/>
+				<fileset dir="lib" includes="*.jar" />
+			</classpath>
+		
+			<formatter type="xml"/>
+
+			<batchtest todir="test-reports">
+				<fileset dir="${srcdir}">
+					<include name="**/*Test.java" />
+				</fileset>
+			</batchtest>
+		</junit>
+	</target>
+
+</project>
