@@ -8,7 +8,7 @@ pipeline{
 		
 		stage("Source"){
 			steps{
-				git branch:"main", url:"https://github.com/samruddhij07/DevOps-practice.git"
+				git branch:"main", url:"https://github.com/samruddhij07/student-system-testing.git"
 			}
 		}
 	
