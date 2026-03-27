@@ -1,4 +1,4 @@
-<project name=student-system-testing>
+<project name="student-system-testing">
 	<property file="build.properties" />
 	
 	<target name="compile">
