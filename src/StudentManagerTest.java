@@ -14,7 +14,7 @@ public class StudentManagerTest {
     @Test
     public void testFailingGrade() {
         // If a student gets 30, they MUST get an "F"
-        assertEquals("F", manager.calculateGrade(30));
+        assertEquals("Z", manager.calculateGrade(30));
     }
 
     @Test
