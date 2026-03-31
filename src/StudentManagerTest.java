@@ -48,7 +48,7 @@ public class StudentManagerTest {
     @Test
     public void testDatabaseLogic() {
         // This code will NOT run
-        assertEquals(100, manager.calculateScore());
+        assertEquals(100, manager.calculateGrade());
     }
 }
 
