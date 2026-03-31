@@ -47,8 +47,8 @@ public class StudentManagerTest {
     @Ignore("Waiting for database connection")
     @Test
     public void testDatabaseLogic() {
-        // This code will NOT run
-        assertEquals(100, manager.calculateGrade());
+        // Pass any number (like 0) just to satisfy the compiler
+        assertEquals("F", manager.calculateGrade(0)); 
     }
 }
 
