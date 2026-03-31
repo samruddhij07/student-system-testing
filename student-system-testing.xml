@@ -8,7 +8,7 @@
 
 	<target name="test" depends="compile">
 		<mkdir dir="test-reports" />
-		<junit printsummary="yes" fork="true" haltonfailure="no">
+		<junit printsummary="yes" fork="true" haltonfailure="yes">
 			<classpath>
 				<pathelement path="${builddir}/${classdir}"/>
 				<fileset dir="lib" includes="*.jar" />
