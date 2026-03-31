@@ -34,4 +34,14 @@ public class StudentManagerTest {
         // Testing "Edge Case": What if the score is 150?
         assertEquals("Invalid Score", manager.calculateGrade(150));
     }
+
+    @Test
+    public void testWithError() {
+        String name = null;
+        // This will throw a NullPointerException because 'name' is null
+        int length = name.length(); 
+        assertEquals(5, length);
+    }
 }
+
+
