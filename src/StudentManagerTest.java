@@ -21,7 +21,7 @@ public class StudentManagerTest {
     @Test
     public void testPassStatus() {
         // 40 should be a pass
-        assertFalse("Score of 40 should pass", manager.isPassed(40));
+        assertTrue("Score of 40 should pass", manager.isPassed(40));
     }
 
     @Test
