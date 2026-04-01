@@ -45,7 +45,7 @@
 		<echo message="Success: sonar-ant-task.jar file found at ${sonar.jar.path}" />
 	</target>
 
-	<target name="sonar" depends="compile">
+	<target name="sonar" depends="compile, check-sonar-jar">
         <taskdef uri="antlib:org.sonar.ant" resource="org/sonar/ant/antlib.xml" />
 		<sonar:sonar />
     </target>
