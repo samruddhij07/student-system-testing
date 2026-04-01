@@ -15,7 +15,7 @@ public class StudentManagerTest {
     @Test
     public void testFailingGrade() {
         // If a student gets 30, they MUST get an "F"
-        assertEquals("Z", manager.calculateGrade(30));
+        assertEquals("F", manager.calculateGrade(30));
     }
 
     @Test
@@ -36,20 +36,6 @@ public class StudentManagerTest {
         assertEquals("Invalid Score", manager.calculateGrade(150));
     }
 
-    @Test
-    public void testWithError() {
-        String name = null;
-        // This will throw a NullPointerException because 'name' is null
-        int length = name.length(); 
-        assertEquals(5, length);
-    }
-
-    @Ignore("Waiting for database connection")
-    @Test
-    public void testDatabaseLogic() {
-        // Pass any number (like 0) just to satisfy the compiler
-        assertEquals("F", manager.calculateGrade(0)); 
-    }
 }
 
 
