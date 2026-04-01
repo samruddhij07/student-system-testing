@@ -23,6 +23,14 @@ pipeline{
 				bat "ant -f student-system-testing.xml test"
 			}
 		}
+
+		stage("SonarQube Analysis") {
+            steps {
+                withSonarQubeEnv('SonarServer') {
+                    bat "ant -f student-system-testing.xml sonar"
+                }
+            }
+        }
 		
 	}
 
