@@ -1,5 +1,13 @@
-<project name="student-system-testing">
+<project name="student-system-testing" xmlns:sonar="antlib:org.sonar.ant">
 	<property file="build.properties" />
+
+	<property name="sonar.host.url" value="http://10.131.103.244:9000" />
+    <property name="sonar.projectKey" value="student-system-testing" />
+    <property name="sonar.projectName" value="Student Grading System" />
+    <property name="sonar.projectVersion" value="1.0" />
+    <property name="sonar.sources" value="${srcdir}" />
+    <property name="sonar.java.binaries" value="${builddir}/${classdir}" />
+    <property name="sonar.junit.reportPaths" value="test-reports" />
 	
 	<target name="compile">
 		<mkdir dir = "${builddir}/${classdir}" />
@@ -23,5 +31,10 @@
 			</batchtest>
 		</junit>
 	</target>
+
+	<target name="sonar" depends="compile">
+        <taskdef uri="antlib:org.sonar.ant" resource="org/sonar/ant/antlib.xml" />
+		<sonar:sonar />
+    </target>
 
 </project>
