@@ -8,6 +8,7 @@
     <property name="sonar.sources" value="${srcdir}" />
     <property name="sonar.java.binaries" value="${builddir}/${classdir}" />
     <property name="sonar.junit.reportPaths" value="test-reports" />
+	<property name="sonar.jar.path" value="${ant.home}/lib/sonar-ant-task.jar" />
 	
 	<target name="compile">
 		<mkdir dir = "${builddir}/${classdir}" />
@@ -30,6 +31,18 @@
 				</fileset>
 			</batchtest>
 		</junit>
+	</target>
+
+	<target name="check-sonar-jar">
+		<echo message="Checking sonar-ant-task.jar file..."/>
+		<available file="${sonar.jar.path}" property="sonar.jar.present"/>
+		<fail unless="sonar.jar.present">
+			################################################################
+			ALERT: sonar-ant-task.jar file not found in ${ant.home}/lib
+			Download it from the official website of SonarQube Distribution
+			################################################################
+		</fail>
+		<echo message="Success: sonar-ant-task.jar file found at ${sonar.jar.path}" />
 	</target>
 
 	<target name="sonar" depends="compile">
