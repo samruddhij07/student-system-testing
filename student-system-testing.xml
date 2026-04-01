@@ -8,7 +8,7 @@
     <property name="sonar.sources" value="${srcdir}" />
     <property name="sonar.java.binaries" value="${builddir}/${classdir}" />
     <property name="sonar.junit.reportPaths" value="test-reports" />
-	<property name="sonar.jar.path" value="${ant.home}/lib/sonar-ant-task.jar" />
+	<property name="sonar.jar.path" value="${ant.home}/lib/sonarqube-ant-task-2.7.1.1951.jar" />
 	
 	<target name="compile">
 		<mkdir dir = "${builddir}/${classdir}" />
