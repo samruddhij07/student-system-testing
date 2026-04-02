@@ -31,8 +31,14 @@ pipeline{
                 }
             }
         }
-		
-	}
+
+		stage("Quality Gate") {
+		    steps {
+		        // This is the "Hook" that asks SonarQube: "Did she pass or fail?"
+		        waitForQualityGate abortPipeline: true
+			    }
+			}
+		}
 
 	post{
 		always{
