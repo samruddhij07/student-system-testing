@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class StudentManager {
     public String calculateGrade(int score) {
         if (score < 0 || score > 100) return "Invalid Score";
