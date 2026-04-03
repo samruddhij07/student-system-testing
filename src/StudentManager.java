@@ -17,7 +17,7 @@ public class StudentManager {
     /**
      * COMPLEX FUNCTION ADDED FOR QUALITY GATE TESTING
      * This contains intentional Bugs, Vulnerabilities, and Debt.
-     */
+     
     public void processStudentReportCard(String studentName, List<Integer> scores) {
         // 1. VULNERABILITY: Hardcoded sensitive information (Security Rating will drop)
         String dbPassword = "admin_password_2026"; 
@@ -55,7 +55,7 @@ public class StudentManager {
         // 6. BUG: Dead Code / Unused Variable
         // This variable is created but never used
         String unusedData = "Temporary Data Store";
-    }
+    }*/
 
     public static void main(String[] args) {
         System.out.println("--- Student Management System Loaded ---");
