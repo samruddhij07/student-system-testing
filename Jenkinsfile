@@ -38,6 +38,12 @@ pipeline{
 		        waitForQualityGate abortPipeline: true
 			    }
 			}
+
+		stage("Publish to Artifactory") {
+            steps {
+                bat "ant -f student-system-testing.xml publish"
+            	}
+        	}
 		}
 
 	post{
