@@ -33,6 +33,28 @@
 		</junit>
 	</target>
 
+	<target name="package" depends="compile">
+        <mkdir dir="${builddir}/dist" />
+        <jar destfile="${builddir}/dist/${jar.name}" basedir="${builddir}/${classdir}">
+            <manifest>
+                <attribute name="Main-Class" value="StudentManager"/>
+            </manifest>
+        </jar>
+    </target>
+
+	<target name="publish" depends="package">
+        <echo message="Uploading ${jar.name} to Artifactory at ${artifactory.url}..."/>
+        <exec executable="curl">
+            <arg value="-u"/>
+            <arg value="${artifactory.user}:${artifactory.password}"/>
+            <arg value="-X"/>
+            <arg value="PUT"/>
+            <arg value="${artifactory.url}/${jar.name}"/>
+            <arg value="-T"/>
+            <arg value="${builddir}/dist/${jar.name}"/>
+        </exec>
+    </target>
+	
 	<target name="check-sonar-jar">
 		<echo message="Checking sonar-ant-task.jar file..."/>
 		<available file="${sonar.jar.path}" property="sonar.jar.present"/>
