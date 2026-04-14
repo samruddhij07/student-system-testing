@@ -1,5 +1,5 @@
 pipeline{
-	agent any
+	agent { label 'build_node' }
 	tools{
 		ant "Ant_1.10.15"
 	}
